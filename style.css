@@ -1,0 +1,187 @@
+/* Reset et base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0b191e;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+}
+
+.accent {
+    color: #19b385;
+}
+
+/* Header */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 40px;
+    border-bottom: 1px solid #162930;
+}
+
+.logo {
+    font-family: 'Yeseva One', serif;
+    font-size: 1.25rem;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: #ffffff;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #19b385;
+}
+
+/* Section Introduction (Hero) */
+.intro {
+    max-width: 1000px;
+    margin: 60px auto 50px;
+    padding: 0 20px;
+}
+
+.intro h1 {
+    font-family: 'Yeseva One', serif;
+    font-size: 2.6rem;
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 20px;
+}
+
+.intro p {
+    color: #7f8c93;
+    font-size: 0.9rem;
+    max-width: 650px;
+}
+
+/* Section Portfolio & Filtres */
+.portfolio {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.filters ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.filters a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+.filters a.active,
+.filters a:hover {
+    background-color: #19b385;
+    color: #ffffff;
+}
+
+/* Grille Ordinateur : 4 colonnes x 4 lignes = 16 images */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.grid img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+}
+
+/* Footer */
+.site-footer {
+    text-align: center;
+    padding: 60px 20px 40px;
+    color: #7f8c93;
+    font-size: 0.75rem;
+}
+
+.site-footer .subtitle {
+    font-size: 0.65rem;
+    margin-top: 6px;
+}
+
+/* =========================================
+   VUE TABLETTE (max-width: 1024px)
+   5 colonnes x 3 lignes = 15 images
+   ========================================= */
+@media screen and (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+    }
+
+    /* Masque à partir de la 16e image (15 affichées) */
+    .grid img:nth-child(n + 16) {
+        display: none;
+    }
+}
+
+/* =========================================
+   VUE MOBILE (max-width: 600px)
+   Header centré + 3 colonnes x 3 lignes = 9 images
+   ========================================= */
+@media screen and (max-width: 600px) {
+    .site-header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 25px 15px;
+    }
+
+    .intro {
+        margin: 40px auto 35px;
+    }
+
+    .intro h1 {
+        font-size: 2rem;
+    }
+
+    .filters ul {
+        gap: 8px;
+    }
+
+    .filters a {
+        font-size: 0.65rem;
+        padding: 4px 6px;
+        letter-spacing: 1px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    /* Masque à partir de la 10e image (9 affichées) */
+    .grid img:nth-child(n + 10) {
+        display: none;
+    }
+}
